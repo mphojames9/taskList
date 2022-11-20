@@ -29,7 +29,7 @@ body {
     background-size: cover;
 }
 
-.header {
+body .header {
     background: var(--clr--accent);
     width: 100%;
     height: fit-content;
@@ -38,6 +38,10 @@ body {
     padding: 1em;
     box-shadow: var(--bs);
     text-decoration:wavy
+}
+
+body .header .fa-book {
+    padding-right: .5em;
 }
 
 .wrapper{
