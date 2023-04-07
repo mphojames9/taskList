@@ -18,4 +18,5 @@ Made project to be mobile responsive.</br>
 Cross tested on Firefox and Chromium browsers.</br>
 Made functionality of saving data to localStorage.</br>
 
-### live demo https://mphojames9.github.io/ToDo-list-application/
+### live demo https://mphojames9.github.io/todo-list
+/
