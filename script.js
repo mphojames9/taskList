@@ -1,82 +1,75 @@
-const inputBox = document.querySelector('.inputField input');
-const addBtn = document.querySelector('.inputField button');
-const toDoList = document.querySelector('.todoList');
-const clearBtn = document.querySelector('.footer button');
+const input = document.querySelector(".input");
+const submitBtn = document.querySelector(".submit");
+const taskHolder = document.querySelector(".tasks");
+const pendingNumber = document.querySelector(".count");
 
-inputBox.addEventListener('keyup', ()=>{
-    let userData = inputBox.value;
-    if(userData != 0){
-        addBtn.classList.add('active');
-    }
-    else {
-        addBtn.classList.remove('active')
-    }
-})
-dispalyTask()
-
-addBtn.addEventListener('click', ()=>{
-    let userData = inputBox.value;
-    let getLocalStorage = localStorage.getItem('New Todo');
-    if(getLocalStorage == null){
-        listArr= [];
-        //This means that if localStorage is null, blank array will be created
-    } 
-    else{
-        listArr = JSON.parse(getLocalStorage);
-    }
-    listArr.push(userData);
-    localStorage.setItem('New Todo', JSON.stringify(listArr));
-    if(userData == ''){
+function addTask(){
+    const task = input.value;
+    if(!task){
         return
     }
-    dispalyTask()
-    const pendingNumber = document.querySelector('.pendingTask');
-    pendingNumber.textContent = listArr.length
-})
-
-function dispalyTask(){//Displaying task that must be completed
-    let userData = inputBox.value;
-    let getLocalStorage = localStorage.getItem('New Todo');
-    if(getLocalStorage == null){
-        listArr= [];
-        //This means that if localStorage is null, blank array will be created
-    } 
     else{
-        listArr = JSON.parse(getLocalStorage);
+        let li = document.createElement("li");
+        li.classList.add("list")
+        li.innerHTML = task;
+        taskHolder.appendChild(li);
+        let checkBox = document.createElement("checkBox");
+        checkBox.classList.add("not")
+        checkBox.innerHTML = "&#10003"
+        li.appendChild(checkBox);
+        let deleteButton = document.createElement("deleteButton");
+        deleteButton.classList.add("deleteButton");
+        deleteButton.innerHTML = "x";
+        li.appendChild(deleteButton);
+        save();
     }
-
-    let newLitag = '';
-    listArr.forEach((element, index) => {
-        newLitag += `<li> ${element} <span onclick="deleteTask(${index})"; ><div class="#">Delete</div></span></li>`;
-    });
-    toDoList.innerHTML = newLitag;
-    inputBox.value = '';
+    input.value = "";
+    pandingTasks()
+    
 }
 
-function deleteTask(index){//Deleting each task
-    let getLocalStorage = localStorage.getItem('New Todo');
-    listArr = JSON.parse(getLocalStorage);
-    listArr.splice(index, 1);
-    const pendingNumber = document.querySelector('.pendingTask');//pending number
-    pendingNumber.textContent = listArr.length//pending number length and number count
-    localStorage.setItem('New Todo', JSON.stringify(listArr));
-    dispalyTask();
+taskHolder.addEventListener("click", function(e){
+    if(e.target.tagName === "DELETEBUTTON"){
+        e.target.parentElement.remove();
+        pandingTasks()
+
+    }
+    else if(e.target.tagName === "CHECKBOX"){
+        e.target.classList.toggle("checked")
+    }
+    save()
+
+});
+
+function save(){
+    localStorage.setItem("data", taskHolder.innerHTML);
+    localStorage.setItem("num", pendingNumber.innerHTML);
 }
 
-clearBtn.addEventListener('click', ()=>{//To clear all pendind Tasks
-    listArr = [];
-    localStorage.setItem('New Todo', JSON.stringify(listArr));
-    const pendingNumber = document.querySelector('.pendingTask');
-    pendingNumber.textContent = listArr.length
-    if(listArr.length = 0){
-        clearBtn.classList.add('active');
-    }
-    else {
-        clearBtn.classList.remove('active')
-    }
-    dispalyTask();
-})
-const pendingNumber = document.querySelector('.pendingTask');
-pendingNumber.textContent = listArr.length
+function getLocalStarage(){
+    taskHolder.innerHTML = localStorage.getItem("data");
+    pendingNumber.innerHTML = localStorage.getItem("num");
+    
+}
+function clearLocalStorage(){
+    localStorage.clear();
+    getLocalStarage();
+    save()
+    pandingTasks()
+}
 
+function pandingTasks(){
+    let num = taskHolder.childNodes.length;
+    if(num === 0){
+        pendingNumber.innerHTML = "No Tasks to show, please add";
+    }else if(num === 1){
+        pendingNumber.innerHTML = `You have ${num} pending task`;
+    }
+    else{
+        pendingNumber.innerHTML = `You have ${num} pending tasks`;
+        save()
+    }
+
+}
+getLocalStarage();
 
