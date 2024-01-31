@@ -3,83 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo_list</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="images/logo.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Yusei+Magic&display=swap"
-      rel="stylesheet"
-    />
-    <script
-    src="https://kit.fontawesome.com/4c536a6bd5.js"
-    crossorigin="anonymous"
-  ></script>
+    <title>Task-list</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/8641fbd759.js" crossorigin="anonymous"></script>
     <script src="main.js" defer></script>
 </head>
-<body>
-    
-  <body>
-    <header class="header">
-      <div class="logo">
-        <i class="fas fa-check-double"></i>
-        <h1 class="page-name">Todo List</h1>
-      </div>
-      <button class="button-open-nav" id="button-open-nav">
-        <i class="fas fa-bars"></i>
-      </button>
-    </header>
-    <main class="main">
-      <nav class="nav" id="nav">
-        <!-- Default projects -->
-        <div class="default-projects-list">
-          <button class="button-default-project" id="button-inbox-projects">
-            <i class="fas fa-inbox"></i>
-            Inbox
-          </button>
-          <button class="button-default-project" id="button-today-projects">
-            <i class="fas fa-calendar-day"></i>
-            Today
-          </button>
-          <button class="button-default-project" id="button-week-projects">
-            <i class="fas fa-calendar-week"></i>
-            This week
-          </button>
+<body onload="fillterToday()">
+    <div class="menuBtn" onclick="openNavBar()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <h1 class="header">
+        <i class="fas fa-file-lines"></i>
+        <p>Task-list</p>
+    </h1>
+    <div class="wrapper">
+        <div class="navBar">
+            <div class="today" onclick="fillterToday()">
+                <i class="fas fa-calendar-check"></i>
+                <h2>Today</h2>
+            </div>
+            <div class="tomorrow" onclick="fillterTomorrow()">
+                <i class="fas fa-calendar-day"></i>
+                <h2>Tomorrow</h2>
+            </div>
+            <div class="nextWeek" value="test" onclick="fillterNextWeek()">
+                <i class="fas fa-calendar-week"></i>
+                <h2>Next Week</h2>
+            </div>
+            <div class="overDue" onclick="fillterOverDue()">
+                <i class="fas fa-calendar-xmark"></i>
+                <h2>Over Due</h2>
+            </div>
         </div>
-        <!-- User projects -->
-        <h1 class="projects-title">Projects</h1>
-        <div class="projects-list" id="projects-list"></div>
-        <button class="button-add-project" id="button-add-project">
-          <i class="fas fa-plus"></i>
-          Add Project
-        </button>
-        <div class="add-project-popup" id="add-project-popup">
-          <input
-            class="input-add-project-popup"
-            id="input-add-project-popup"
-            type="text"
-          />
-          <div class="add-project-popup-buttons">
-            <button
-              class="button-add-project-popup"
-              id="button-add-project-popup"
-            >
-              Add
-            </button>
-            <button
-              class="button-cancel-project-popup"
-              id="button-cancel-project-popup"
-            >
-              Cancel
-            </button>
-          </div>
+        <div class="taskListContainer">
+            <h2 class="folder">Today</h2>
+            <button class="add" onclick="displayForm()"> Add Task </button>
+    <form class="form">
+        <div class="close" onclick="closeForm()">X</div>
+        <h2>Add Task</h2>
+        <input class="input" type="text" placeholder="Add your task here"></input>
+        <div class="priority">
+            <p>Priority:</p>
+            <div class="selectors">
+                <div>
+                    <input type="radio" name="radio" value="green" id="low" class="radio">
+                    <label for="Low">Low</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio" value="orange" id="mediam" class="radio">
+                    <label for="mediam">Mediam</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio" value="red" id="high" class="radio">
+                    <label for="high">High</label>
+                </div>
+            </div>
         </div>
-      </nav>
-      <!-- Tasks -->
-      <div class="project-preview" id="project-preview"></div>
-    </main>
-    <footer class="footer">
-    </footer>
-  </body>
+        <div class="date">
+            <p>Due date</p>
+            <input type="date" class="dueDate">
+        </div>
+
+        <button class="submit" onclick="addTask(event)">Submit</button>
+    </form>
+    <div class="today_tasks"></div>
+    <div class="tomorrow_tasks"></div>
+    <div class="nextWeek_tasks"></div>
+    <div class="overdue_tasks"></div>
+    </div>
+</div>
+</body>
 </html>

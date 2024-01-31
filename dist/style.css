@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.text {
+    cursor: pointer;
+}
+
+.underline {
+    text-decoration: line-through;
+}
+
+body {
+    background-color: rgba(178, 172, 207, 0.432);
+    position: relative;
+}
+
+.menuBtn {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: .7em;
+}
+
+.menuBtn:hover {
+    cursor: pointer;
+}
+
+.line1, .line2, .line3 {
+    width: 30px;
+    height:4.3px ;
+    margin: 1.7px;
+    background-color:aliceblue ;
+    transition:100ms;
+}
+
+.l1-rotate{
+    width: 30px;
+    height:4.3px ;
+    margin: 2px;
+    background-color:aliceblue ;
+    transform: translate(0,8px) rotate(45deg);
+}
+.l2-rotate{
+    display:none;
+}
+.l3-rotate{
+    width: 30px;
+    height:4.3px ;
+    margin: 2px;
+    background-color:aliceblue ;
+    transform: translate(0,0px) rotate(-45deg);
+}
+.header {
+    color: aliceblue;
+    background-color: rgb(136, 92, 150);
+    text-align: center;
+    padding: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.4em;
+    
+}
+
+.navBar {
+    width: 50px;
+    min-height: 500px;
+    background-color: rgb(136, 92, 150);
+    position: fixed;
+    height: 100%;
+    transition: 250ms ease-in-out;
+    color: white;
+    padding: 0.7em;
+    overflow: hidden;
+    border-top:1px  rgb(192, 127, 127) solid;
+    z-index: 1;
+    
+}
+
+.navBar_open {
+    width: 300px;
+}
+
+.today, .tomorrow, .nextWeek, .overDue {
+    margin-bottom: 1em;
+    width: 100%;
+    max-height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.overDue {
+    border-top: 1px  rgb(192, 127, 127) solid;
+    border-bottom: 1px  rgb(192, 127, 127) solid;
+    border-radius: 5px;
+}
+
+.fas {
+    padding: 5px;
+    font-size: 1.5em;
+    margin-right: .5em;
+}
+
+.fa-calendar-xmark {
+    animation: infinite 2s overDue;
+}
+
+@keyframes overDue{
+    0% {
+        color: white;
+    }
+    50% {
+        color: rgb(192, 127, 127);
+    }
+    100% {
+        color: white;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+}
+
+.form {
+    background-color: rgb(136, 92, 150);
+    min-height: 100px;
+    display: none;
+    flex-direction: column;
+    height: fit-content;
+    max-width: 700px;
+    width: 98%;
+    align-items: center;
+    justify-content: center;
+    padding: .3em;
+    background-size: 100% 300px;
+    margin: 0 auto;
+    box-shadow: 1.25em 1.25em 1.75em rgba(0,0,0,.25),
+    1.125em 1.125em 1.25em rgba(0,0,0,.15);;
+    margin: 8.5em auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+}
+
+
+
+.form .input{
+    color: white;
+    letter-spacing: 1.5px;
+    border: 1px solid rgb(255, 60, 0);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+    background-color: rgba(104, 121, 133, 0.486);
+    border: solid 1px black;
+}
+
+.form h2 {
+    color: aliceblue;
+}
+
+.form input::placeholder {
+    color: white;
+}
+
+.priority {
+    display: flex;
+    flex-direction: row;
+    max-width: 500px;
+    justify-content: space-between;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    max-width: 500px;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+    border-radius: 5px;
+    padding: 10px;
+    color: aliceblue;
+}
+
+.date p {
+    margin-right: 1em;
+    margin-left: 0;
+}
+
+
+.selectors {
+    display: flex;
+    flex-direction: row;
+    width: 230px;
+}
+
+
+.radio{
+    width: 65px;
+    margin: 1px;
+}
+
+.form .close {
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 15px;
+    border-radius: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+}
+
+.form .close:hover {
+    transform: scale(1.1);
+    color: rgb(231, 219, 219);
+}
+
+.form .close:active {
+    transform: scale(0.95);
+}
+
+.form button {
+    cursor: pointer;
+    font-size: 1em;
+    letter-spacing: 2px;
+    transition: 150ms ease-in-out;
+    background-color: transparent;
+    color: white;
+    border: solid 1px black;
+}
+
+.form button, .priority {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+}
+
+.form button:hover {
+    transform: scale(1.015);
+}
+
+.form button:active {
+    transform: scale(0.995);
+}
+
+.taskListContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.taskListContainer .folder {
+    color: black;
+    position: absolute;
+    right: 0;
+    margin-right: 1em;
+    margin-top: 0.3em;
+}
+
+.taskListContainer .add {
+    margin:  1em auto;
+    width: 150px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.342), -5px 5px 5px rgba(0, 0, 0, 0.377);
+    background-color: rgb(136, 92, 150);
+    font-weight: 800;
+    border-radius: 5px;
+    color: aliceblue;
+
+}
+
+
+.taskListContainer .today_tasks {
+    height: fit-content;
+}
+
+.taskListContainer .tomorrow_tasks {
+    height: fit-content;
+}
+
+.taskListContainer .nextWeek_tasks {
+    height: fit-content;
+}
+
+.taskListContainer .overdue_tasks {
+    height: fit-content;
+}
+
+.card {
+    width: 80%;
+    max-width: 700px;
+    min-height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px auto;
+    background-color: rgba(150, 101, 167, 0.767);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.taskName {
+    display: flex;
+    gap: 10px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.priorityLevel {
+    width: 10px;
+    height: inherit;
+    border-top-left-radius:50px;
+    border-bottom-left-radius:50px
+}
+
+.taskTools {
+    width: fit-content;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    align-items: center;
+}
+
+.material-icons:hover {
+    cursor: pointer;
+}
+
+@media (max-width:500px){
+    .navBar {
+        width: 0px;
+        padding: 0;
+        padding-top: 4em;
+    }
+
+    .navBar_open {
+        width: 240px;
+    }
+
+    .taskListContainer .folder {
+        color: black;
+        position: relative;
+        text-align: center;
+    }
+
+  .card {
+        width: 100%;
+        max-width: 700px;
+        min-height: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px auto;
+        background-color: rgba(150, 101, 167, 0.767);
+    }
+}
