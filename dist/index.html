@@ -9,8 +9,8 @@
 <script src="https://kit.fontawesome.com/8641fbd759.js" crossorigin="anonymous"></script>
     <script src="main.js" defer></script>
 </head>
-<body onload="fillterToday()">
-    <div class="menuBtn" onclick="openNavBar()">
+<body>
+    <div class="menuBtn">
         <div class="line1"></div>
         <div class="line2"></div>
         <div class="line3"></div>
@@ -21,28 +21,28 @@
     </h1>
     <div class="wrapper">
         <div class="navBar">
-            <div class="today" onclick="fillterToday()">
+            <div class="today">
                 <i class="fas fa-calendar-check"></i>
                 <h2>Today</h2>
             </div>
-            <div class="tomorrow" onclick="fillterTomorrow()">
+            <div class="tomorrow">
                 <i class="fas fa-calendar-day"></i>
                 <h2>Tomorrow</h2>
             </div>
-            <div class="nextWeek" value="test" onclick="fillterNextWeek()">
+            <div class="nextWeek">
                 <i class="fas fa-calendar-week"></i>
                 <h2>Next Week</h2>
             </div>
-            <div class="overDue" onclick="fillterOverDue()">
+            <div class="overDue">
                 <i class="fas fa-calendar-xmark"></i>
                 <h2>Over Due</h2>
             </div>
         </div>
         <div class="taskListContainer">
             <h2 class="folder">Today</h2>
-            <button class="add" onclick="displayForm()"> Add Task </button>
+            <button class="add"> Add Task </button>
     <form class="form">
-        <div class="close" onclick="closeForm()">X</div>
+        <div class="close">X</div>
         <h2>Add Task</h2>
         <input class="input" type="text" placeholder="Add your task here"></input>
         <div class="priority">
@@ -67,7 +67,7 @@
             <input type="date" class="dueDate">
         </div>
 
-        <button class="submit" onclick="addTask(event)">Submit</button>
+        <button class="submit">Submit</button>
     </form>
     <div class="today_tasks"></div>
     <div class="tomorrow_tasks"></div>
