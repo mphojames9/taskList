@@ -1,13 +1,14 @@
 //import functions
+import openNavBar from "./navBar";
 import fillterToday from "./fillterToday";
 import fillterTomorrow from "./fillterTomorrow";
 import fillterNextWeek from "./fillterNextWeek";
 import fillterOverDue from "./fitterOverDue";
 import radioChecker from "./radioChecker";
 import clearBoard from "./clearBoard";
-import deleteTask from "./deleteTask";
 
 //Elemets
+const menuBtn = document.querySelector(".menuBtn");
 const addForm = document.querySelector(".form");
 const addBtn = document.querySelector(".add");
 const submitBtn = document.querySelector(".submit");
@@ -15,7 +16,6 @@ const todaySec = document.querySelector(".today");
 const tomorrowSec = document.querySelector(".tomorrow");
 const nextWeekSec = document.querySelector(".nextWeek");
 const overDueSec = document.querySelector(".overDue");
-let priorityLevelChecked = radioChecker();
 const todayTaskEl = document.querySelector(".today_tasks");
 const tommorowTaskEl = document.querySelector(".tomorrow_tasks");
 const nextWeekTaskEl = document.querySelector(".nextWeek_tasks");
@@ -23,6 +23,10 @@ const overDueTaskEl = document.querySelector(".overdue_tasks");
 
 //display today's tasks on startup
 window.onload = fillterToday();
+
+menuBtn.addEventListener("click", ()=>{
+    openNavBar()
+} )
 
 //display form
 addBtn.addEventListener("click",()=>{
@@ -94,9 +98,11 @@ function Task(taskName, dueDate, priorityLevelChecked){
 
 function addTask(event){
     event.preventDefault();
+    
 
     let taskName = document.querySelector(".input").value;
     let dueDate = document.querySelector(".dueDate").value;
+    let priorityLevelChecked = radioChecker();
     if(taskName === "" || dueDate === ""){
         return
     }
@@ -114,9 +120,9 @@ function addTask(event){
     document.querySelector(".input").value = "";
     document.querySelector(".dueDate").value = "";
 
-    settingLocalStorage()
     renderTasks()
-    radioChecker()
+
+    console.log(priorityLevelChecked)
 
 
 }
@@ -127,7 +133,7 @@ function getLocalStorageItems(){
     return tasksToObejects;
 }
 
-export default function renderTasks(){
+function renderTasks(){
     clearBoard()
      const eachTask = getLocalStorageItems();
         for (let i = 0; i < eachTask.length; i++){
@@ -147,7 +153,6 @@ export default function renderTasks(){
                 </div>
                 </div>
             </div>`
-    
             if(myTasks.dueDate === DayofToday){
                 todayTaskEl.appendChild(displayCard);
             }
@@ -158,13 +163,18 @@ export default function renderTasks(){
             }if(myTasks.dueDate >= nextWeek && myTasks.dueDate <= AfterNext){
                 nextWeekTaskEl.appendChild(displayCard)
             }
-            const deleteButton = document.querySelector(".material-icons");
-            deleteButton.addEventListener("click",()=>{
+            const deleteButtons = document.querySelectorAll(".material-icons");
+            deleteButtons.forEach(deleteButton => deleteButton.addEventListener("click",(e)=>{
                 deleteTask(i)
-                console.log("hi")
-            })
+            }))
         }
     }
+
+function deleteTask(index){
+        myTaskList.splice(index, 1)
+        localStorage.setItem('data', JSON.stringify(myTaskList));
+        renderTasks();
+        }
  window.onload = renderTasks();
 
 
