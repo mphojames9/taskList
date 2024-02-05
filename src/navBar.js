@@ -8,6 +8,4 @@ export default function openNavBar(){
     menuL1.classList.toggle("l1-rotate");
     menuL2.classList.toggle("l2-rotate");
     menuL3.classList.toggle("l3-rotate");
-
-    console.log("test it")
 }

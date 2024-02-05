@@ -11,6 +11,4 @@ export default function fillterToday(){
     tommorowTaskEl.style.display = "none";
     nextWeekTaskEl.style.display = "none";
     overDueTaskEl.style.display = "none";
-
-    console.log("todayFiller running")
 }

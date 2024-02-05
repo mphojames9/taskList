@@ -11,6 +11,4 @@ export default function fillterOverDue(){
     tommorowTaskEl.style.display = "none";
     nextWeekTaskEl.style.display = "none";
     overDueTaskEl.style.display = "block";
-
-    console.log("over due ")
 }
