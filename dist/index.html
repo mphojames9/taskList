@@ -1,97 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>TODO LIST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-list</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/8641fbd759.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/8641fbd759.js" crossorigin="anonymous"></script>
     <script src="main.js" defer></script>
 </head>
-
 <body>
-    <div class="addProjectPopUp" id="form1">
-        <form class="popUpForm">
-            <label for="projectName">Project Name:</label>
-            <input class="projectName" onfocus="this.value = ''" id="projectName" maxlength="20">
-            <div>
-                <input type="submit" value="Ok" class="addToProject">
-                <button id="cancelPro" class="cancel">Cancel</button>
-            </div form>
-            <div class="error"></div>
+    <div class="menuBtn">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
     </div>
-</form>
+
+    <h1 class="header">
+        <i class="fas fa-file-lines"></i>
+        <p>Task-list</p>
+
+    </h1>
+    <div class="wrapper">
+        <div class="navBar">
+            <div class="today">
+                <i class="fas fa-calendar-check"></i>
+                <h2>Today</h2>
+            </div>
+            <div class="tomorrow">
+                <i class="fas fa-calendar-day"></i>
+                <h2>Tomorrow</h2>
+            </div>
+            <div class="nextWeek">
+                <i class="fas fa-calendar-week"></i>
+                <h2>Next Week</h2>
+            </div>
+            <div class="later">
+                <i class="fas fa-solid fa-clock"></i>
+                <h2>Later</h2>
+            </div>
+            <div class="overDue">
+                <i class="fas fa-calendar-xmark"></i>
+                <h2>Over Due</h2>
+            </div>
+        </div>
+        <div class="taskListContainer">
+            <h2 class="folder">Today</h2>
+            <button class="add"> Add Task </button>
+    <form class="form">
+        <div class="close">X</div>
+        <h2>Add Task</h2>
+        <input class="input" type="text" placeholder="Add your task here"></input>
+        <input class="discription" type="text" placeholder="Discription or notes"></input>
+        <div class="priority">
+            <p>Priority:</p>
+            <div class="selectors">
+                <div>
+                    <input type="radio" name="radio" value="green" id="green" class="radio">
+                    <label for="Low">Low</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio" value="orange" id="orange" class="radio">
+                    <label for="mediam">Mediam</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio" value="tomato" id="tomato" class="radio">
+                    <label for="high">High</label>
+                </div>
+            </div>
+        </div>
+        <div class="date">
+            <p>Due date</p>
+            <input type="date" class="dueDate">
+        </div>
+
+        <button class="submit">Submit</button>
+    </form>
+    <div class="today_tasks">
+
+    </div>
+    <div class="tomorrow_tasks"></div>
+    <div class="nextWeek_tasks"></div>
+    <div class="later_tasks"></div>
+    <div class="overdue_tasks"></div>
+    </div>
 </div>
-    <div class="addTaskPopUp" id="form2">
-        <form class="taskForm">
-            <div class="taskName_sec">
-                <label for="taskName">Task Name:</label>
-                <input id="taskName" maxlength="30" required>
-            </div>
-            <div class="taskNameDiscription">
-                <label for="taskDescription">Description:</label>
-                <input id="taskDescription" maxlength="200">
-            </div>
-
-            <label for="taskDue">Due Date:</label>
-            <input type="date" id="taskDue">
-            <div class="prio">
-                <div>Priority:</div>
-                <input type="radio" id="low" name="taskPrio" class="taskPrio" value="Low">Low
-                <input type="radio" class="taskPrio" id="med" name="taskPrio" value="Medium">Medium
-                <input type="radio" class="taskPrio" id="hi" name="taskPrio" value="High">High
-            </div>
-            <div class="selectFolder">
-                <label for="saveTo">Save To:</label>
-                <select name="saveTo" id="saveTo" required>
-                    <option value="Tasks">Tasks</option>
-                </select>
-            </div>
-            <div class="popUpControl">
-                <input type="submit" value="Ok" class="addToTask">
-                <button class="cancel">Cancel</button>
-            </div>
-        </form>
-    </div>
-    <div class="vwrapper">
-        <div class="nav-top">
-            <div class="burger">
-                <div class="menu"><i class="fa fa-bars"></i>
-                </div>
-                <div class="close"><i class="fa fa-close"></i></div>
-            </div>
-            <div class="logo">
-                <div class="tempText">
-                    <h1>List List</h1>
-                </div>
-            </div>
-            <div class="newTodoBtn"><i class="fa fa-add"></i></div>
-        </div>
-        <div class="bottom-cont">
-            <div class="left-nav">
-                <div class="tasks projectStyle">Tasks</div>
-                <hr />
-                <div class="forstyle">
-                    <div>Projects</div>
-                    <div class="controlPro">
-                        <div class="projectBtn">
-                        </div>
-                    </div>
-                </div>
-                <div class="projectList"></div>
-            </div>
-            <div class="content"></div>
-        </div>
-    </div>
-    <div class="hiddenCont">
-        <div class="flx">
-            <button class="confirm">Delete</button>
-            <button class="cancel">Cancel</button>
-        </div>
-    </div>
-    <div class="disable">
-    </div>
 </body>
-
 </html>

@@ -1,186 +1,76 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    color: white;
-    position: relative;
+.text {
+    cursor: pointer;
+}
+
+.underline {
+    text-decoration: line-through;
+}
+
+body {
     background-color: rgba(178, 172, 207, 0.432);
-}
-
-/*Add prject form section*/
-.addProjectPopUp{
-    background-color: tomato;
-    max-width: 95%;
-    width: 350px;
-    margin: 5em auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height:150px;
-    border: 1px solid white;
-    border-radius: 4px;
-    display: none;/*hidding form section temporary*/
-}
-/*Add prject form form*/
-.addProjectPopUp .popUpForm {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    height: 100px;
-    justify-content: space-between ;
-}
-
-/*Add prject form buttons*/
-.addProjectPopUp .addToProject,.addProjectPopUp .cancel{
-    width: 100px;
-    height: 25px;
-    color: white;
-    border-radius: 4px;
-    border: 1px solid white;
-    cursor: pointer;
-    transition: ease-in-out 250ms;
-}
-/*Add prject form add button*/
-.addProjectPopUp .addToProject{
-    background-color: rgb(100, 136, 212);
-}
-/*Add prject form cancel button*/
-.addProjectPopUp .cancel {
-    background-color: red;
-}
-
-.addProjectPopUp .cancel:hover, .addProjectPopUp .addToProject:hover  {
-    opacity: .8;
-}
-/*Add prject form input*/
-.addProjectPopUp .projectName {
-    height: 25px;
-    padding: 10px;
-    background-color: none;
-    border: 1px solid rgb(18, 22, 31);
-}
-
-/*Add task form*/
-.taskForm {
-    background-color: tomato;
-    max-width: 500px;
-    min-height: 200px;
-    height: fit-content;
-    padding: 10px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 5em auto;
-    width: 95%;
-    border: 1px solid white;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    display: none;/*hide temporary*/
-}
-
-/*Add task form input*/
-.taskForm input{
-    height: 25px;
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid  rgb(100, 136, 212);;
-}
-
-/*Task priority*/
-.taskForm .prio {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-    margin: 5px;
-}
-
-/*Add task form buttons*/
-.taskForm .addToTask,.taskForm .cancel{
-    width: 100px;
-    height: 25px;
-    color: white;
-    border-radius: 4px;
-    border: 1px solid white;
-    cursor: pointer;
-    transition: ease-in-out 250ms;
-    margin: 5px;
-}
-
-/*Add task form add button*/
-.taskForm .addToTask {
-    background-color: rgb(100, 136, 212);
-}
-
-/*Add task form select folder section*/
-.taskForm .selectFolder{
-    margin: 5px;
-}
-
-/*Add task form cancel button*/
-.taskForm .cancel{
-    background-color: red;
-}
-
-.taskForm .addToTask:hover {
-    opacity: .8;
-
-}
-
-.taskForm .cancel:hover{
-    opacity: .8;
-}
-
-/*App board*/
-.vwrapper {
-    width: 100%;
-    height: fit-content;
-    min-height: 500px ;
-}
-/*top navigation bar*/
-.nav-top {
-    background-color: rgb(136, 92, 150);
-    width: 100%;
-    height: 5.4em;
-    display: flex;
     position: relative;
-    padding: .5em;
 }
 
-.nav-top .newTodoBtn {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-
-.nav-top .logo{
-    width:fit-content;
-    margin: 10px auto;
-}
-
-.nav-top .burger{
-    margin: 10px;
-    width: fit-content;
-}
-
-.nav-top .menu, .nav-top .close{
-    position: absolute;
-}
-
-.bottom-cont {
+.menuBtn {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: .7em;
 }
 
-.left-nav{
-    width: 300px;
+.menuBtn:hover {
+    cursor: pointer;
+}
+
+.line1, .line2, .line3 {
+    width: 30px;
+    height:4.3px ;
+    margin: 1.7px;
+    background-color:aliceblue ;
+    transition:100ms;
+}
+
+.l1-rotate{
+    width: 30px;
+    height:4.3px ;
+    margin: 2px;
+    background-color:aliceblue ;
+    transform: translate(0,8px) rotate(45deg);
+}
+.l2-rotate{
+    display:none;
+}
+.l3-rotate{
+    width: 30px;
+    height:4.3px ;
+    margin: 2px;
+    background-color:aliceblue ;
+    transform: translate(0,0px) rotate(-45deg);
+}
+.header {
+    color: aliceblue;
+    background-color: rgb(136, 92, 150);
+    text-align: center;
+    padding: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.4em;
+    
+}
+
+.navBar {
+    width: 52px;
     min-height: 500px;
     background-color: rgb(136, 92, 150);
     position: fixed;
@@ -191,67 +81,317 @@ body{
     overflow: hidden;
     border-top:1px  rgb(192, 127, 127) solid;
     z-index: 1;
-}
-
-.bottom-cont .tasks{
-
-     background-color: green;
-     font-size: 1.8em;
-}
-
-.forstyle {
-    background-color: black;
-}
-
-.content{
-    width: 100%;
-    padding: 10px;
-}
-
-.taskCont {
-    width: inherit;
-}
-
-.taskCont .task-wrapper{
-    width: inherit;
-    background-color: tomato;
-    margin: 12px auto;
-    border-radius: 4px;
-    border: 1px white solid;
-}
-
-.taskCont .task-wrapper .initial{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    font-size: 1.2em;
-}
-
-.taskCont .task-wrapper .initial .task-control .editBtn{
-    width: 20px;
-    height: 20px;
-    background-color: green;
-}
-
-.taskCont .task-wrapper .initial .task-control {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
     
 }
 
-.taskCont .task-wrapper .initial .task-control .deleteBtn{
-    width: 20px;
-    height: 20px;
-    background-color: rgb(150, 108, 53);
+.navBar_open {
+    width: 300px;
 }
 
-.taskCont .task-wrapper .initial .task-control .prioColor{
-    width: 20px;
-    height: 20px;
-    background-color: rgb(63, 36, 185);
+.today, .tomorrow, .nextWeek, .later, .overDue {
+    margin-bottom: 1em;
+    width: 100%;
+    max-height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    white-space:nowrap;
 }
 
-.taskCont .task-wrapper .expand{
+.overDue {
+    border-top: 1px  rgb(192, 127, 127) solid;
+    border-bottom: 1px  rgb(192, 127, 127) solid;
+    border-radius: 5px;
+}
+
+.fas {
     padding: 5px;
+    font-size: 1.5em;
+    margin-right: .5em;
+}
+
+.fa-calendar-xmark {
+    animation: infinite 2s overDue;
+}
+
+@keyframes overDue{
+    0% {
+        color: white;
+    }
+    50% {
+        color: rgb(192, 127, 127);
+    }
+    100% {
+        color: white;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+}
+
+.form {
+    background-color: rgb(136, 92, 150);
+    min-height: 100px;
+    display: none;
+    flex-direction: column;
+    height: fit-content;
+    max-width: 700px;
+    width: 98%;
+    align-items: center;
+    justify-content: center;
+    padding: .3em;
+    background-size: 100% 300px;
+    margin: 0 auto;
+    box-shadow: 1.25em 1.25em 1.75em rgba(0,0,0,.25),
+    1.125em 1.125em 1.25em rgba(0,0,0,.15);;
+    margin: 8.5em auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+}
+
+
+
+.form .input, .discription{
+    color: white;
+    letter-spacing: 1.5px;
+    border: 1px solid rgb(255, 60, 0);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+    background-color: rgba(104, 121, 133, 0.486);
+    border: solid 1px black;
+}
+
+
+
+.form h2 {
+    color: aliceblue;
+}
+
+.form input::placeholder {
+    color: white;
+}
+
+.priority {
+    display: flex;
+    flex-direction: row;
+    max-width: 500px;
+    justify-content: space-between;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    max-width: 500px;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+    border-radius: 5px;
+    padding: 10px;
+    color: aliceblue;
+}
+
+.date p {
+    margin-right: 1em;
+    margin-left: 0;
+}
+
+
+.selectors {
+    display: flex;
+    flex-direction: row;
+    width: 230px;
+}
+
+
+.radio{
+    width: 65px;
+    margin: 1px;
+}
+
+.form .close {
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 15px;
+    border-radius: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+}
+
+.form .close:hover {
+    transform: scale(1.1);
+    color: rgb(231, 219, 219);
+}
+
+.form .close:active {
+    transform: scale(0.95);
+}
+
+.form button {
+    cursor: pointer;
+    font-size: 1em;
+    letter-spacing: 2px;
+    transition: 150ms ease-in-out;
+    background-color: transparent;
+    color: white;
+    border: solid 1px black;
+}
+
+.form button, .priority {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    padding: .25rem;
+    margin: .25rem;
+}
+
+.form button:hover {
+    transform: scale(1.015);
+}
+
+.form button:active {
+    transform: scale(0.995);
+}
+
+.taskListContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.taskListContainer .folder {
+    color: black;
+    position: absolute;
+    right: 0;
+    margin-right: 1em;
+    margin-top: 0.3em;
+}
+
+.taskListContainer .add {
+    margin:  1em auto;
+    width: 150px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: tomato;
+    font-weight: 800;
+    border-radius: 50px;
+    color: aliceblue;
+
+}
+
+
+.taskListContainer .today_tasks, .tomorrow_tasks, .nextWeek_tasks, .overdue_tasks, .later_tasks {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    color: aliceblue;
+
+}
+
+.card_wrapper{
+    margin-top: 7.5px;
+    background-color: rgb(127, 83, 141);
+    border-radius: 4px;
+    height: 50px;
+    overflow: hidden;
+    transition: ease-in-out 250ms;
+}
+
+.card_wrapper:hover {
+    height: 150px;
+}
+
+.card {
+    width: inherit;
+    max-width: 700px;
+    min-height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.discription_Sec{
+    min-height: 20px;
+    margin: 0px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.discription_name {
+    font-weight: 600;
+}
+
+.taskName {
+    display: flex;
+    gap: 5px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+
+}
+
+.priorityLevel {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 20px 3px;
+}
+
+.taskTools {
+    width: fit-content;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    align-items: center;
+}
+
+.material-icons:hover {
+    cursor: pointer;
+}
+
+@media (max-width:500px){
+    .navBar {
+        width: 0px;
+        padding: 0;
+        padding-top: 4em;
+    }
+
+    .navBar_open {
+        width: 240px;
+    }
+
+    .taskListContainer .folder {
+        color: black;
+        position: relative;
+        text-align: center;
+    }
+
+    .taskListContainer .today_tasks, .tomorrow_tasks, .nextWeek_tasks, .overdue_tasks, .later_tasks  {
+        width: 97%;
+        max-width: 700px;
+    }
 }
