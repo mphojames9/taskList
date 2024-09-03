@@ -111,7 +111,7 @@ function addTask(event){
     let dueDate = document.querySelector(".dueDate").value;
     let discription = document.querySelector(".discription").value
     let priorityLevelChecked = radioChecker();
-    if(taskName === "" || dueDate === "" || priorityLevelChecked === undefined ){
+    if(taskName === "" || dueDate === "" || discription === "" || priorityLevelChecked === undefined ){
         return
     }
     addForm.style.display = "none";
@@ -143,7 +143,21 @@ function renderTasks(){
      const eachTask = getLocalStorageItems();
         for (let i = 0; i < eachTask.length; i++){
             let myTasks = eachTask[i];
-    
+
+            let level;
+
+            function priorityLevelDiscrip(){
+                if(myTasks.priorityLevelChecked === "greenyellow"){
+                    level = "Low";
+                }
+                if(myTasks.priorityLevelChecked === "tomato"){
+                    level = "Mediam";
+                }else{
+                    level = "High"
+                }
+                return level ;
+            }
+            priorityLevelDiscrip()
             const displayCard = document.createElement("div");
             displayCard.innerHTML = `
         <div class="card_wrapper">
@@ -166,7 +180,7 @@ function renderTasks(){
             <div class="discription_Sec">
                 <div class="discription_name">${myTasks.discription}</div>
                 <div class="dueDate">Due date: ${myTasks.dueDate}</div>
-                <div class="priorityLevel_discription" >Priority: <span style="color: ${myTasks.priorityLevelChecked};">${myTasks.priorityLevelChecked}</span></div>
+                <div class="priorityLevel_discription" >Priority: <span style="color: ${myTasks.priorityLevelChecked};">${priorityLevelDiscrip()}</span></div>
     
             </div>
         </div>`
