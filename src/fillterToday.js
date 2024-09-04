@@ -6,7 +6,6 @@ export default function fillterToday(){
     const nextWeekTaskEl = document.querySelector(".nextWeek_tasks");
     const overDueTaskEl = document.querySelector(".overdue_tasks");
     const laterTaskEl = document.querySelector(".later_tasks");
-    console.log(laterTaskEl)
 
     selectedFolder.innerHTML = "Today"
     todayTaskEl.style.display = "block";

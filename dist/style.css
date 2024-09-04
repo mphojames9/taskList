@@ -293,7 +293,7 @@ body {
     height: 25px;
     border: none;
     cursor: pointer;
-    background-color: tomato;
+    background-color: rgb(127, 83, 141);
     font-weight: 800;
     border-radius: 50px;
     color: aliceblue;
