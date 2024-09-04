@@ -329,6 +329,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 1.2em;
 }
 
 .discription_Sec{
@@ -336,6 +337,8 @@ body {
     margin: 0px auto;
     padding: 10px;
     text-align: center;
+    font-size: 1.2em;
+
 }
 
 .discription_name {

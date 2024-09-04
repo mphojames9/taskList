@@ -204,6 +204,10 @@ function renderTasks(){
                 deleteTask(i)
             }))
         }
+            const test = document.querySelectorAll(".name");
+            test.forEach(t => t.addEventListener("click",(e)=>{
+                t.style.textDecoration = "line-through solid white 2px"
+            }))
     }
 
 function deleteTask(index){
@@ -211,4 +215,10 @@ function deleteTask(index){
         localStorage.setItem('data', JSON.stringify(myTaskList));
         renderTasks();
         }
+
+function completed(){
+       
+}
+
+
  window.onload = renderTasks();
