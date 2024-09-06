@@ -204,10 +204,7 @@ function renderTasks(){
                 deleteTask(i)
             }))
         }
-            const test = document.querySelectorAll(".name");
-            test.forEach(t => t.addEventListener("click",(e)=>{
-                t.style.textDecoration = "line-through solid white 2px"
-            }))
+            completed()
     }
 
 function deleteTask(index){
@@ -217,7 +214,10 @@ function deleteTask(index){
         }
 
 function completed(){
-       
+    const test = document.querySelectorAll(".name");
+    test.forEach(t => t.addEventListener("click",(e)=>{
+        t.classList.toggle("toggle");
+    }))
 }
 
 
