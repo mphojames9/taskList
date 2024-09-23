@@ -4,7 +4,7 @@
     --bgColor1: rgb(6, 5, 9);
     --bgColor2: rgba(6, 5, 9, 0.911);
     --bgColor3: rgb(0, 110, 255);
-    --bgColorPopUp: #c04ecf;
+    --bgColorPopUp: #230527;
     --accentDark:rgb(70, 95, 109);
     --textColor: #eaebec;
     --accent:  rgb(220, 34, 34);
@@ -204,16 +204,22 @@ form:hover{
     right:10px;
     z-index: 2;
     border-radius:3px;
-    background-color: var(--bgColorPopUp);
+    background-color: var(--bgColor1);
     padding:4px;
     box-shadow: 0 2px 5px rgba(0,0,0, 0.4);
     transform: translateY(+10px) ;
     transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
     position:absolute;
 }
-.option > button{
-    color:var(--textColor);
-    margin:0;
+
+.option #listDelete {
+    background-color: red;
+}
+
+.option #listEdit {
+    background-color: rgb(28, 151, 233);
+    height: 40px;
+    text-align: center;
 }
 
 .wrapper, .wrapperEditForm {
