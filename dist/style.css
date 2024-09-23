@@ -1,404 +1,600 @@
-* {
-    margin: 0;
+
+:root {
+   
+    --bgColor1: rgb(6, 5, 9);
+    --bgColor2: rgba(6, 5, 9, 0.911);
+    --bgColor3: rgb(0, 110, 255);
+    --bgColorPopUp: #c04ecf;
+    --accentDark:rgb(70, 95, 109);
+    --textColor: #eaebec;
+    --accent:  rgb(220, 34, 34);
+
+    --clr-light: #ffffff;
+    --clr-dark: #24262b;
+    --clr-accent: #cf9c4e;
+    --clr-button: rgb(220, 34, 34);
+    --crl-main: rgb(6, 5, 9);
+}
+
+html{
+    width: 100%;
+    height:100%;
+    margin:0;
     padding: 0;
+    
+}
+body{
+     font-size: 16px;    
+    font-family: 'Alata', sans-serif;
+    background-color: whitesmoke;
+    font-family: 'Alata';
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--bgColor2);
+}
+
+/* css for header area(logo) */
+.logoArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 4px 2px inset;
+    font-size:2.5rem;
+    padding:10px 20px;
+    font-weight: 900;
+    background-color: var(--bgColor1);
+}
+.hiddenMenu{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+        
+    padding:10px;
+    border-radius: 4px;
+}
+.hiddenMenu:active{
+    transform: scale(0.9);
+}
+.hiddenMenu .material-icons-round{
+    color: var(--textColor);
+    transform:scale(1.3);
+
+    pointer-events: none;
+}
+.hiddenMenu:hover{
+    background-color: rgba(128, 128, 128, 0.267);
+}
+.logoLeft{
+    display: flex;
+    align-items: center;
+    color: var(--textColor);
+}
+.logoLeft img{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-right:5px;
+}
+.logoLeft span{
+    color:var(--textColor);
+}
+
+.label{
+    background-color: var(--bgColor1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px;
+    border-radius: 50px;
+    height:40px;
+    width: 80px;
+    box-sizing: border-box;
+    position: relative;
+    transform:scale(0.8);
+    transition: background-color 0.2s ease-in;
+    border: solid 3px var(--accentDark);
+    cursor: pointer;
+}
+
+
+/* css for content below logo */
+.content{
+    display:flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    
+}
+
+/* css for .leftPanel */
+.leftPanel{
+    box-sizing: border-box;
+    background-color: var(--bgColor1);
+    display: flex;
+    flex-direction: column;
+    color:var(--textColor);
+    padding:20px;
+    width:350px;
+    user-select: none;
+}
+.leftPanel h2{
+    margin-top: 0;
+    padding-bottom:5px;
+    border-bottom: solid 2px var(--textColor);
+}
+.leftPanel .material-icons-round{
+    margin-right: 5px;
+    margin-left:10px;
+}
+.leftPanel img{
+    width: 27px;
+    height: 27px;
+    margin-right: 5px;
+    margin-left:10px;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+}
+.project{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    
+}
+
+
+button, li, form, .tile{
+    font-family: 'Alata', sans-serif;
+    margin: 3px 0;
+    height: auto;
+    padding-top: 20px;
+    font-size: 1.125rem;
+    color: var(--textColor);
+    background: transparent;
+    padding:5px;
+    display:flex;
+    align-items: flex-start;
+    border-radius: 4px;
+    border: solid 2px transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.leftPanel .tile:hover, 
+button:hover,
+form:hover{
+    background-color: var(--bgColor2);
+}
+
+.projectInfo{
+    display: flex;
+    flex:1;
+}
+
+.selected{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-left: solid 3px var(--accent) !important;
+}
+
+
+/* css for editProject part */
+.editContainer{
+    display: flex;
+    align-items: center;
+    margin-left:auto;
+    position: relative;             
+}
+.editContainer.active .option{
+    opacity: 1 !important; 
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.option{
+    pointer-events: none;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    background: var(--textColor);
+    bottom:30px;
+    right:10px;
+    z-index: 2;
+    border-radius:3px;
+    background-color: var(--bgColorPopUp);
+    padding:4px;
+    box-shadow: 0 2px 5px rgba(0,0,0, 0.4);
+    transform: translateY(+10px) ;
+    transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
+    position:absolute;
+}
+.option > button{
+    color:var(--textColor);
+    margin:0;
+}
+
+.wrapper, .wrapperEditForm {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.877);
+    position: fixed;
+    z-index: 99;
+    padding: 10px;
+}
+
+#listForm label, .inputField label{
+    margin-top: 15px;
+    padding: 5px;
+}
+
+#listForm input, .inputField label {
+    padding: 5px;
+}
+
+#listForm {
+    max-width: 700px;
+    width: 100%;
+    margin: 10em auto;
+    padding: 10px;
+    background-color: var(--bgColor1);
+    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 1px 1px;
+}
+
+#editListForm {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: var(--bgColor1);
+    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 1px 1px;
+}
+
+.project #projectForm, 
+.project #renameForm,
+#listForm,
+#editListForm{
+    display:flex;
+    flex:1;
+    align-items:flex-start;
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    transition-delay: 1s;
+    max-height: 500px;
+    transition: max-height 0.8s ease-out, opacity 300ms ease-in-out;
+}
+
+.hidden{
+    top:0;
+    left:0;
+    pointer-events: none !important;
+    max-height:0 !important;
+
+    /* do nth but avoid opacity transition when position absolute */
+    transition: max-height 1s ease-out !important;    
+    opacity: 0 !important;
+}
+
+.projectIcon{
+    margin-top: 3px;
+}
+
+.formInput{
+    display:flex;
+}
+.inputField{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-sizing: content-box;
+}
+input[type=text],
+textarea,
+input[type=date]{
+    width:100%;
+    box-sizing: border-box;
+    font-family: 'Alata';
+    font-size:1rem;
+    background-color: white;
+    border: solid 2px #273746;
+    border-radius: 3px;
+    padding:5px;
+    resize: none;
+}
+.formButtons{
+    margin-top:5px;
+    display: flex;
+    justify-content:center;
+    width: 100%;
+}
+.projectSubmitBtn,
+.projectCancelBtn,
+.rename-renameBtn,
+.rename-cancelBtn,
+.listSubmitBtn,
+.listCancelBtn,
+.editTaskSubmitBtn,
+.editTaskCancelBtn{
+    font-family:'Alata';
+    width:100px;
+    margin:5px;
+    border: none;
+    border-radius: 0px;
+    color: white;
+    cursor: pointer;
+    padding:5px;
+    font-weight: bold;
+}
+.projectSubmitBtn,
+.rename-renameBtn,
+.listSubmitBtn,
+.editTaskSubmitBtn{
+    background-color: var(--accentDark);
+}
+.projectCancelBtn,
+.rename-cancelBtn,
+.listCancelBtn,
+.editTaskCancelBtn{
+    background-color: rgb(190, 4, 4);
+}
+
+button:hover, 
+input[type="button"]:hover,
+input[type="submit"]:hover{
+    opacity: 0.9;
+}
+
+/* css for drag and drop event */
+.dragging{
+    opacity: 0.5;
+}
+
+
+/* css for right panel */
+.rightPanel{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10px;
+    flex: 1;
+    min-height: 90vh;
     box-sizing: border-box;
 }
-
-.text {
-    cursor: pointer;
+.title{
+    height: 60px;
+    padding: 20px;
+    font-size:2.3rem;
+    color: #f7f5f5;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+ul{
+    padding:0;
+    list-style-type:none;
+    color:var(--textColor);
 }
 
-.underline {
-    text-decoration: line-through;
+.list-todo{
+    display: flex;
+    flex-direction: column;
+
 }
 
-body {
-    background-color: rgba(178, 172, 207, 0.432);
+.list-todo ul {
+
+
+}
+
+li{
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+    padding: 0;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    transition: transform 100ms ease-in-out;
+    margin: 15px;
+    background-color: var(--bgColor1);
+    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 1px 2px;
+}
+
+.checkmark{
+    padding-top:3px;
+    display: block;
+}
+ul .material-icons-round{
+    transform:scale(0.8);
+    margin-right: 8px;
+    margin-top: 10px;
+}
+
+/* checkmark button */
+.unchecked{
+    width: 13px;
+    height: 13px;
+    border: solid 2px var(--textColor) ;
+    border-radius: 50%;
+    margin-right:8px;
+    margin-top:10px;
+    flex-shrink: 0;
+}
+.checked{
+    background-image: url("./images/checkmark.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-origin:border-box;
+    background-color: white;
+}
+.lineThrough{
+    text-decoration:line-through;
+}
+.fade{
+    opacity: 0.7;
+}
+.listHidden{
+    opacity: 0;
+    position: absolute;
+}
+.important{
+    pointer-events: none;
+    color: #fec810;
+}
+.cancel{
+    color: red;
+    background: white;
+    border-radius: 50%;
+}
+
+/* edit form css */
+.list-details{
+    flex:1;
+    margin-top:5px;
+}
+.taskTitle{
+    min-height: 25px;
+}
+
+.taskDetails{
+    font-size: 0.875rem;
+    white-space: pre-wrap;
+    overflow-wrap:normal;
+    padding: 2px;
+
+}
+
+.list-right{
+    display:flex;
+    padding:5px;
     position: relative;
 }
-
-.menuBtn {
-    width: 30px;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    margin: .7em;
+.list-right .material-icons-round{
+    padding:1px;
+    margin:2px;
+    transform:scale(1.05);
+    border-radius: 3px;
 }
-
-.menuBtn:hover {
-    cursor: pointer;
-}
-
-.line1, .line2, .line3 {
-    width: 30px;
-    height:4.3px ;
-    margin: 1.7px;
-    background-color:aliceblue ;
-    transition:100ms;
-}
-
-.l1-rotate{
-    width: 30px;
-    height:4.3px ;
-    margin: 2px;
-    background-color:aliceblue ;
-    transform: translate(0,8px) rotate(45deg);
-}
-.l2-rotate{
-    display:none;
-}
-.l3-rotate{
-    width: 30px;
-    height:4.3px ;
-    margin: 2px;
-    background-color:aliceblue ;
-    transform: translate(0,0px) rotate(-45deg);
-}
-.header {
-    color: aliceblue;
-    background-color: rgb(136, 92, 150);
-    text-align: center;
-    padding: .5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2.4em;
+.list-right .material-icons-round:hover{
+    background-color:var(--bgColorPopUp);
     
 }
-
-.navBar {
-    width: 52px;
-    min-height: 500px;
-    background-color: rgb(136, 92, 150);
-    position: fixed;
-    height: 100%;
-    transition: 250ms ease-in-out;
-    color: white;
-    padding: 0.7em;
-    overflow: hidden;
-    border-top:1px  rgb(192, 127, 127) solid;
-    z-index: 1;
-    
-}
-
-.navBar_open {
-    width: 300px;
-}
-
-.today, .tomorrow, .nextWeek, .later, .overDue {
-    margin-bottom: 1em;
-    width: 100%;
-    max-height: 35px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    overflow: hidden;
-    white-space:nowrap;
-}
-
-.overDue {
-    border-top: 1px  rgb(192, 127, 127) solid;
-    border-bottom: 1px  rgb(192, 127, 127) solid;
-    border-radius: 5px;
-}
-
-.fas {
-    padding: 5px;
-    font-size: 1.5em;
-    margin-right: .5em;
-}
-
-.fa-calendar-xmark {
-    animation: infinite 2s overDue;
-}
-
-@keyframes overDue{
-    0% {
-        color: white;
-    }
-    50% {
-        color: rgb(192, 127, 127);
-    }
-    100% {
-        color: white;
-    }
-}
-
-.wrapper {
-    width: 100%;
-    min-height: 500px;
-    display: flex;
-}
-
-.form {
-    background-color: rgb(136, 92, 150);
-    min-height: 100px;
-    display: none;
-    flex-direction: column;
-    height: fit-content;
-    max-width: 700px;
-    width: 98%;
-    align-items: center;
-    justify-content: center;
-    padding: .3em;
-    background-size: 100% 300px;
-    margin: 0 auto;
-    box-shadow: 1.25em 1.25em 1.75em rgba(0,0,0,.25),
-    1.125em 1.125em 1.25em rgba(0,0,0,.15);;
-    margin: 8.5em auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.date{
+    font-size: 0.875rem;
+    padding:3px 6px;
+    margin: 6px 5px;
+    border:solid 1.5px var(--textColor);
     border-radius: 10px;
 }
+.list-details span{
+    display: inline-block;
+}
+.notes{
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    align-content: space-around;
+}
 
+.list-todo form{
+    padding:10px 20px;
+    background-color: var(--bgColor1);
+}
+#addList{
+    padding-left:45px;
+}
 
+.list-todo button:hover,
+li:hover{
+    background-color: var(--bgColor1);
+}
+.list-todo button:active,
+li:active{
+    transform:scale(0.995);
+}
 
-.form .input, .discription{
-    color: white;
-    letter-spacing: 1.5px;
-    border: 1px solid rgb(255, 60, 0);
+.noTask{
     text-align: center;
-    max-width: 500px;
-    width: 100%;
-    padding: .25rem;
-    margin: .25rem;
-    background-color: rgba(104, 121, 133, 0.486);
-    border: solid 1px black;
+    font-size: 1.5rem;
 }
 
-
-
-.form h2 {
-    color: aliceblue;
-}
-
-.form input::placeholder {
-    color: white;
-}
-
-.priority {
-    display: flex;
-    flex-direction: row;
-    max-width: 500px;
-    justify-content: space-between;
-    width: 100%;
-    padding: .25rem;
-    margin: .25rem;
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
-}
-
-.date {
-    display: flex;
-    flex-direction: row;
-    max-width: 500px;
-    width: 100%;
-    padding: .25rem;
-    margin: .25rem;
-    border-radius: 5px;
-    padding: 10px;
-    color: aliceblue;
-}
-
-.date p {
-    margin-right: 1em;
-    margin-left: 0;
-}
-
-
-.selectors {
-    display: flex;
-    flex-direction: row;
-    width: 230px;
-}
-
-
-.radio{
-    width: 65px;
-    margin: 1px;
-}
-
-.form .close {
-    color: white;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 15px;
-    border-radius: 100%;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 100ms ease-in-out;
-}
-
-.form .close:hover {
-    transform: scale(1.1);
-    color: rgb(231, 219, 219);
-}
-
-.form .close:active {
-    transform: scale(0.95);
-}
-
-.form button {
-    cursor: pointer;
-    font-size: 1em;
-    letter-spacing: 2px;
-    transition: 150ms ease-in-out;
-    background-color: transparent;
-    color: white;
-    border: solid 1px black;
-}
-
-.form button, .priority {
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
-    padding: .25rem;
-    margin: .25rem;
-}
-
-.form button:hover {
-    transform: scale(1.015);
-}
-
-.form button:active {
-    transform: scale(0.995);
-}
-
-.taskListContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.taskListContainer .folder {
-    color: black;
-    position: absolute;
-    right: 0;
-    margin-right: 1em;
-    margin-top: 0.3em;
-}
-
-.taskListContainer .add {
-    margin:  1em auto;
-    width: 150px;
-    height: 25px;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(127, 83, 141);
-    font-weight: 800;
-    border-radius: 50px;
-    color: aliceblue;
-
-}
-
-
-.taskListContainer .today_tasks, .tomorrow_tasks, .nextWeek_tasks, .overdue_tasks, .later_tasks {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    color: aliceblue;
-
-}
-
-.card_wrapper{
-    margin-top: 7.5px;
-    background-color: rgb(127, 83, 141);
-    border-radius: 4px;
-    height: 50px;
-    overflow: hidden;
-    transition: ease-in-out 250ms;
-}
-
-.card_wrapper:hover {
-    height: 150px;
-}
-
-.card {
-    width: inherit;
-    max-width: 700px;
-    min-height: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 1.2em;
-}
-
-.discription_Sec{
-    min-height: 20px;
-    margin: 0px auto;
-    padding: 10px;
-    text-align: center;
-    font-size: 1.2em;
-
-}
-
-.discription_name {
-    font-weight: 600;
-}
-
-.taskName {
-    display: flex;
-    gap: 5px;
-}
-
-.name {
+/* css for footer */
+footer{
     display: flex;
     align-items: center;
-    font-weight: bold;
-
+    justify-content: center;
+    margin-top:auto;
+    background-color: var(--bgColor1);
+    color:var(--textColor);
+    flex-shrink: 0;
+    height:fit-content;
+    padding: 10px;
 }
-
-.priorityLevel {
-    width: 15px;
-    height: 15px;
+footer > *{
+    margin: auto 10px;
+    vertical-align: center;
+    /* height: 35px; */
+}
+footer a{
+    color:var(--accent);
+}
+footer img{
+    width: 23px;
+    height: 23px;
+    margin-top: 5px;
+    background-color: white;
     border-radius: 50%;
-    margin: 20px 3px;
+    border: solid 1px var(--textColor);
 }
-
-.taskTools {
-    width: fit-content;
-    display: flex;
-    gap: 5px;
-    padding: 10px;
-    align-items: center;
-}
-
-.material-icons:hover {
+footer img:hover{
+    background-color: var(--accent);
     cursor: pointer;
 }
 
-@media (max-width:500px){
-    .navBar {
-        width: 0px;
-        padding: 0;
-        padding-top: 4em;
+/* media queries */
+@media (max-width:930px){
+    :root{
+        font-size: 16px;
     }
-
-    .navBar_open {
-        width: 240px;
+    .content{
+        flex-direction: column;
     }
-
-    .taskListContainer .folder {
-        color: black;
-        position: relative;
-        text-align: center;
+    .leftPanel{
+        z-index: 3;
+        overflow:auto;
+        width:auto;
     }
-
-    .taskListContainer .today_tasks, .tomorrow_tasks, .nextWeek_tasks, .overdue_tasks, .later_tasks  {
-        width: 97%;
-        max-width: 700px;
+    footer{
+        line-height: 35px;
     }
 }
 
-.toggle {
-    text-decoration: line-through solid 2px white;
+@media (max-width: 430px){
+    :root{
+        font-size: 13px;
+    }
+    .rightPanel{
+        padding:14px;
+    }
+    .title{
+        padding:8px;
+        text-align: center;
+        margin:0px;
+        height: auto;
+    }
+    .content .material-icons-round{
+        transform: scale(0.85);
+    }
+    .list-right{
+        padding:0px;
+        margin-top:3px;
+    }
+    .leftPanel img, 
+    footer img{
+        width:20px;
+        height: 20px;
+    }
+    footer{
+        line-height: 35px;
+    }
 }

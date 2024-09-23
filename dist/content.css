@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/*custom properties*/
+:root {
+    --ff--primary: outfit;
+    --ff-secondary: outfit;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-light: #ffffff;
+    --clr-drk-light:rgba(237, 240, 243, 0.562);
+    --clr-dark: #24262b;
+    --clr-accent: tomato;
+    --clr-accent__-adj: #fcfc;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    --bs: 1.25em 1.25em 1.75em rgba(51, 72, 189, 0.123),
+          1.125em 1.125em 1.25em rgba(70, 97, 136, 0.082);
+    --ts: 1px 3px 1px rgb(88, 67, 67);
+}
+
+@media (max-width:500px){
+    :root {
+        --fs-h1: 2.5rem;
+        --fs-h2: 2rem;
+        --fs-h3: 1.15rem;
+        --fs-body: 0.9rem;
+    }
+}
+
+.tour-types-card-holder {
+    padding: 20px;
+    max-width:1200px ;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.tour-types-card-holder .tour-type-card {
+    height: 630px;
+    width: 47%;
+    min-width: 40vh;
+    box-shadow: var(--bs);
+    border-bottom: 2px solid var(--clr-accent);
+    border-top: 2px solid var(--clr-accent);
+    overflow: hidden;
+}
+
+.tour-types-card-holder .tour-type-card .tour-type-name{
+    color: var(--clr-accent);
+    padding: 10px;
+}
+
+.tour-types-card-holder .tour-type-card img{
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+    transition: ease-in-out 300ms;
+
+}
+
+.tour-types-card-holder .tour-type-card img:hover{
+    transform: scale(1.3);
+}
+
+.tour-types-card-holder .tour-type-card .tour-type-description{
+    padding: 25px;
+    font-size: var(--fs-body);
+}
+
+@media(max-width:720px){
+    .tour-types-card-holder .tour-type-card {
+        width: 100%;
+        height: 580px;
+        min-width: none;
+    }
+}
+
+@media(max-width:400px){
+    .tour-types-card-holder {
+        padding:3px ;
+    }
+
+    .tour-types-card-holder .tour-type-card{
+            width: 100%;
+            min-width: 100%;
+    }
+
+    .tour-types-card-holder .tour-type-card img{
+        width: 100%;
+        height: 250px;
+
+    }
+}
+
+.about-section{
+    max-width: 1200px;
+    width: 90%;
+    margin: 50px auto;
+}
+
+.about-section h1{
+    font-size: max(3vw,20px);
+    color: var(--clr-dark);
+    text-align: center;
+    margin: 40px;
+    font-weight: 500;
+}
+
+.about-section p{
+    margin: 20px 0;
+    font-size: var(--fs-body);
+    color: var(--clr-dark);
+}
+
+/* Download our app section */
+.app-download-section{
+    margin: auto auto;
+    margin-top: 100px;
+    font-size: max(3vw,20px);
+    text-align: center;
+    font-weight: 500;
+}
+
+.app-download-platforms{
+    display: flex;
+    justify-content: center;
+    gap: max(2vw, 10px);
+    margin-top: 40px;
+}
+
+.app-download-platforms img{
+    width: max(30vw,120px);
+    max-width: 180px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.app-download-platforms img:hover{
+    transform: scale(1.05);
+}
+
+ /*contact me section*/
+ .container-contact {
+    width: 50%;
+    margin: 50px auto;
+    padding: 10px;
+    font-weight: 600;
+
+}
+
+.contact_details {
+    margin-bottom: 15px;
+}
+
+.contactMe_h2 {
+    font-size: max(3vw,20px);
+    text-align: center;
+    padding: 0px 25px;
+    width: fit-content;
+    margin: 0 auto;
+	font-weight: 500;
+}
+
+
+ .form-control {
+    margin-bottom: 15px;
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #c5c5c5;
+    outline-color: var(--clr-accent);
+}
+
+.form-label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: var(--fs-body);
+}
+
+.btn-submit {
+    background-color: var(--clr-accent);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    width: 80px;
+    padding: 7px;
+    transition: ease-in-out 300ms;
+    cursor: pointer;
+    font-weight: var(--fw-bold);
+}
+
+.btn-submit:hover {
+    transform: scale(1.05);
+}
+
+.btn-submit:active {
+    transform: scale(.95);
+}
+
+@media (max-width:750px){
+    .container-contact {
+        width: 90%;
+        margin: 0 auto;
+        padding: 5px;
+        font-weight: 600;
+    }
+
+}
+
+@media (max-width:500px){
+    .contactMe_h2{
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        height: 20px;
+    }
+    
+    .contactMe_h2::before{
+        margin-left:40px;
+    }
+}
+
+/*Footer section*/
+.footer{
+    color: #d9d9d9;
+    background-color: #323232;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 8vw;
+    padding-top: 80px ; 
+    margin-top: 5em;
+ }
+ 
+ .footer-logo {
+     width: 200px;
+     border-radius: 10px;
+ }
+ 
+ .footer-content{
+     width: 100%;
+     display: grid;
+     grid-template-columns: 2fr 1fr 1fr;
+     gap: 80px;
+ }
+ 
+ .footer-content-left, .footer-content-right, .footer-content-center{
+     display: flex;
+     flex-direction: column;
+     align-items: start;
+     gap: 20px;
+ }
+ 
+ .footer-content-left li, .footer-content-right li, .footer-content-center li{
+     list-style: none;
+     margin-bottom: 10px;
+     cursor: pointer;
+ }
+ 
+ .footer-content-right h2, .footer-content-center h2{
+     color: white;
+ }
+ 
+ .footer-social-icons img {
+     width: 40px;
+     margin-right: 15px;
+     transition: ease-in-out 300ms;
+     cursor: pointer;
+ }
+
+ .footer-social-icons img:hover {
+    opacity: .5;
+}
+ 
+ .footer hr{
+     width: 100%;
+     height: 2px;
+     margin: 20px;
+     background-color: gray;
+     border: none;
+ }
+ 
+ @media (max-width:750px){
+     .footer-content{
+         display: flex;
+         flex-direction: column;
+         gap: 35px;
+     }
+ 
+     .footer-copyright{
+         text-align: center;
+     }
+ }
+
