@@ -23,4 +23,4 @@ The side panel allows quick access to various task categories:
   * filters for project-related tasks
   * shows number of tasks in each category 
 
-![alt text](../dist/images/app.jpg)
+![alt text](/dist/images/app.jpg)
