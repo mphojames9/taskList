@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root {
    
@@ -25,9 +26,8 @@ html{
 }
 body{
      font-size: 16px;    
-    font-family: 'Alata', sans-serif;
+    font-family: 'outfit';
     background-color: whitesmoke;
-    font-family: 'Alata';
     margin:0;
     padding:0;
     display: flex;
@@ -148,7 +148,6 @@ body{
 
 
 button, li, form, .tile{
-    font-family: 'Alata', sans-serif;
     margin: 3px 0;
     height: auto;
     padding-top: 20px;
@@ -240,24 +239,6 @@ form:hover{
     padding: 5px;
 }
 
-#listForm {
-    max-width: 700px;
-    width: 100%;
-    margin: 10em auto;
-    padding: 10px;
-    background-color: var(--bgColor1);
-    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 1px 1px;
-}
-
-#editListForm {
-    max-width: 700px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 5px;
-    background-color: var(--bgColor1);
-    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 1px 1px;
-}
-
 .project #projectForm, 
 .project #renameForm,
 #listForm,
@@ -271,6 +252,25 @@ form:hover{
     transition-delay: 1s;
     max-height: 500px;
     transition: max-height 0.8s ease-out, opacity 300ms ease-in-out;
+}
+
+#listForm {
+    max-width: 700px;
+    width: 100%;
+    margin: 10em auto;
+    padding: 10px;
+    background-color: var(--bgColor1);
+    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 1px 1px;
+    display: none;
+}
+
+#editListForm {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: var(--bgColor1);
+    box-shadow: rgba(0, 0, 0, 0.836)0px 1px 1px 1px;
 }
 
 .hidden{
@@ -302,7 +302,6 @@ textarea,
 input[type=date]{
     width:100%;
     box-sizing: border-box;
-    font-family: 'Alata';
     font-size:1rem;
     background-color: white;
     border: solid 2px #273746;
@@ -324,7 +323,6 @@ input[type=date]{
 .listCancelBtn,
 .editTaskSubmitBtn,
 .editTaskCancelBtn{
-    font-family:'Alata';
     width:100px;
     margin:5px;
     border: none;
@@ -385,11 +383,6 @@ ul{
 .list-todo{
     display: flex;
     flex-direction: column;
-
-}
-
-.list-todo ul {
-
 
 }
 

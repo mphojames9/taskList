@@ -71,13 +71,16 @@ function checkListEvent(e){
 // pop up the add task form
 const showListForm = () => {
     const ListForm = document.querySelector(".wrapper");
+    const listFormDisplay = document.querySelector("#listForm");
     ListForm.classList.remove("hidden");
+    listFormDisplay.style.display = "flex";
     document.getElementById("listInput").focus();
 }
 
 //hide add-task-form
 const hideListForm = () => {
     const listForm = document.querySelector(".wrapper");
+    const listFormDisplay = document.querySelector("#listForm");
     const listInput = document.querySelector('#listInput');
     const listInputDetail = document.querySelector("#listInputDetail");
     const dateInput = document.querySelector("#listInputDate");
@@ -86,6 +89,7 @@ const hideListForm = () => {
     listInputDetail.value ="";
     dateInput.value ="";
     listForm.classList.add("hidden");
+    listFormDisplay.style.display = "none";
 }
 
 //get id from local storage or get a default one
