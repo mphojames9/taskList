@@ -363,7 +363,7 @@ input[type="submit"]:hover{
     flex-direction: column;
     padding: 30px 10px;
     flex: 1;
-    min-height: 100vh;
+    min-height: 90vh;
     box-sizing: border-box;
 }
 .title{
@@ -528,10 +528,9 @@ footer{
     flex-shrink: 0;
     height:fit-content;
     padding: 10px;
-    bottom: 0;
-    width: 100%;
 }
 footer > *{
+    margin: auto 10px;
     vertical-align: center;
     /* height: 35px; */
 }
