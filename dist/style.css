@@ -532,7 +532,6 @@ footer{
     width: 100%;
 }
 footer > *{
-    margin: auto 10px;
     vertical-align: center;
     /* height: 35px; */
 }
