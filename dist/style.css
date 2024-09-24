@@ -528,7 +528,6 @@ footer{
     flex-shrink: 0;
     height:fit-content;
     padding: 10px;
-    position: absolute;
     bottom: 0;
     width: 100%;
 }
