@@ -109,7 +109,7 @@ function showNoTask(){
     const ul = document.querySelector("ul");
     const div = document.createElement("div");
     div.classList.add("noTask");
-    div.textContent = "Yay! No Tasks!";
+    div.textContent = "You have no pending tasks";
     ul.appendChild(div);
     
 }

@@ -132,9 +132,10 @@ const processRenameInput = (e) =>{
     projectList[dataNum].name = renameInput;
     saveToLocalStorage();
 
+    revertRenameFormLocation();
     displayRenamedProject();
     updateTitle(projectName);           //update title on right panel
-    revertRenameFormLocation();
+
 }
 
 //display renamed project
